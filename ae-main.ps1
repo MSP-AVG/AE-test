@@ -2,9 +2,9 @@
 # Load GitHub functions and menus
 #-----------------------------------------------
 Set-ExecutionPolicy Bypass -Force
-iex (irm https://raw.githubusercontent.com/MSP-AVG/AE/refs/heads/main/ae-ap-menu.ps1)
+iex (irm https://raw.githubusercontent.com/MSP-AVG/AE-test/refs/heads/main/ae-ap-menu.ps1)
 sleep -Seconds 3
-iex (irm https://raw.githubusercontent.com/MSP-AVG/AE/refs/heads/main/ae-functions.ps1)
+iex (irm https://raw.githubusercontent.com/MSP-AVG/AE-test/refs/heads/main/ae-functions.ps1)
 Set-ExecutionPolicy Bypass -Force
 
 #-----------------------------------------------
