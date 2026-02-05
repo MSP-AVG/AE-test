@@ -93,7 +93,7 @@ if ($result -eq [System.Windows.Forms.DialogResult]::OK)
    
 }
 
-if (($Location -eq $null) -or ($Location.contains("---"))){iex (irm https://raw.githubusercontent.com/MSP-AVG/AE/refs/heads/main/ae-ap-menu.ps1)}
+if (($Location -eq $null) -or ($Location.contains("---"))){iex (irm https://raw.githubusercontent.com/MSP-AVG/AE-test/refs/heads/main/ae-ap-menu.ps1)}
 
 <#
 function Hide-CmdWindow() {
@@ -168,11 +168,11 @@ if ($result -eq [System.Windows.Forms.DialogResult]::OK)
     
 }
 
-if (($Type -eq $null) -or ($Type.contains("---"))){iex (irm https://raw.githubusercontent.com/MSP-AVG/AE/refs/heads/main/ae-ap-menu.ps1)}
+if (($Type -eq $null) -or ($Type.contains("---"))){iex (irm https://raw.githubusercontent.com/MSP-AVG/AE-test/refs/heads/main/ae-ap-menu.ps1)}
 
 $GroupTag = $Type+$Location
 
-if ($GroupTag -eq $null){iex (irm https://raw.githubusercontent.com/MSP-AVG/AE/refs/heads/main/ae-ap-menu.ps1)}
+if ($GroupTag -eq $null){iex (irm https://raw.githubusercontent.com/MSP-AVG/AE-test/refs/heads/main/ae-ap-menu.ps1)}
 
 
 Show-PowershellWindow
