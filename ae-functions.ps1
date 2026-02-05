@@ -1,3 +1,4 @@
+
 $ScriptName = 'functions'
 $ScriptVersion = '24.3.7.2'
 Set-ExecutionPolicy Bypass -Force
