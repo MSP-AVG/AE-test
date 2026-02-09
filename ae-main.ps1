@@ -19,6 +19,7 @@ Set-ExecutionPolicy Bypass -Force
 
 #WinPE Stuff
 if ($env:SystemDrive -eq 'X:') {
+    PowerShell.exe -ExecutionPolicy Bypass -File "$($USB.DriveLetter):\Autopilot\Register-Autopilot.ps1" -GroupTag $GroupTag
     #Create Custom SetupComplete on USBDrive, this will get copied and run during SetupComplete Phase thanks to OSD Function: Set-SetupCompleteOSDCloudUSB
     #Set-SetupCompleteCreateStartHOPEonUSB
     #Set-SetupCompleteOSDCloudUSB
