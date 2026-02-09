@@ -17,17 +17,35 @@ iex (irm https://raw.githubusercontent.com/MSP-AVG/AE-test/refs/heads/main/ae-fu
 
 Set-ExecutionPolicy Bypass -Force
 
-#WinPE Stuff
+
+ =====================================
+# WINPE STUFF
+# Runs only when Drive = X:
+# =====================================
 if ($env:SystemDrive -eq 'X:') {
-    PowerShell.exe -ExecutionPolicy Bypass -File "$($USB.DriveLetter):\Autopilot\Register-Autopilot.ps1" -GroupTag $GroupTag
-    #Create Custom SetupComplete on USBDrive, this will get copied and run during SetupComplete Phase thanks to OSD Function: Set-SetupCompleteOSDCloudUSB
-    #Set-SetupCompleteCreateStartHOPEonUSB
-    #Set-SetupCompleteOSDCloudUSB
-    
-    #Write-Host -ForegroundColor Green "Starting win11.garytown.com"
-    #to Run boot OSDCloudUSB, at the PS Prompt: iex (irm win11.garytown.com)
 
+    # (your GitHub logic here that defines $GroupTag)
+    Write-Host -Foreground Red $GroupTag
 
+    # Find USB
+    $USB = Get-Volume | Where-Object { $_.DriveType -eq 'Removable' } | Select-Object -First 1
+
+    if ($USB) {
+        # Autopilot script location
+        $APS = "$($USB.DriveLetter):\Autopilot\Register-Autopilot.ps1"
+
+        if (Test-Path $APS) {
+            Write-Host "Running Autopilot Registration using GroupTag: $GroupTag" -ForegroundColor Green
+
+            # THIS IS THE ONLY LINE YOU ASKED ABOUT
+            PowerShell.exe -ExecutionPolicy Bypass -File $APS -GroupTag $GroupTag
+            Start-Sleep -Seconds 5
+        }
+        else {
+            Write-Host "Register-Autopilot.ps1 not found on USB" -ForegroundColor Yellow
+        }
+    }
+}
 #Variables to define the Windows OS / Edition etc to be applied during OSDCloud
 $Product = (Get-MyComputerProduct)
 $OSVersion = 'Windows 11' #Used to Determine Driver Pack
