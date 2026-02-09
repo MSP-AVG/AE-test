@@ -32,7 +32,7 @@ if ($env:SystemDrive -eq 'X:') {
 
     if ($USB) {
         # Autopilot script location
-        $APS = "$($USB.DriveLetter):\Autopilot\Register-Autopilot.ps1"
+        $APS = "$($USB.DriveLetter):\OSDCloud\Config\Scripts\Register-Autopilot.ps1"
 
         if (Test-Path $APS) {
             Write-Host "Running Autopilot Registration using GroupTag: $GroupTag" -ForegroundColor Green
