@@ -24,7 +24,8 @@ if ($env:SystemDrive -eq 'X:') {
     Write-Host "Using GroupTag: $GroupTag" -ForegroundColor Yellow
 
     # Find USB drive
-    $USB = Get-Volume | Where-Object { $_.DriveType -eq 'Removable' } | Select-Object -First 1
+    
+$USB = Get-Volume | Where-Object { $_.FileSystemLabel -eq 'OSDCloudUSB' } | Select-Object -First 1
 
     if ($USB) {
         $APS = "$($USB.DriveLetter):\OSDCloud\Config\Scripts\Register-Autopilot.ps1"
@@ -42,7 +43,6 @@ if ($env:SystemDrive -eq 'X:') {
         Write-Host "No USB Drive Found" -ForegroundColor Red
     }
 }
-
 
 # =====================================
 # CONTINUE WITH NORMAL OSDCLOUD
